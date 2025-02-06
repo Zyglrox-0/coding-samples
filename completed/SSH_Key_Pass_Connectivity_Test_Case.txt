@@ -1,0 +1,49 @@
+Test Case: Testing SSH connectivity using Password and Key based authentication.
+Purpose: To validate correct establishment and connectivity of Password and Key Based SSH authentication.
+User: root
+
+Requirements:
+	1. Stable internet connection is established on Host and User machines.
+	2. SSH Service is installed, configured and running on the Host machine and User Machine.
+	3. SSH port is not blocked by firewall.
+	4. Host Machine is reachable through network from User Machine.
+
+Test Data:
+	Host Machine name: host-machine
+	User Machine username: user
+	Password: usermachinepassword
+	Private Key: /path/to/user_private_key
+
+For Password based authentication:
+	3. User holds valid username and password .
+
+For Key Based authentication: 
+	4. User has generated public and private key pair.
+	5. For Key Based authentication - User has added public key to the Host Machine and stored private key on User Machine.
+
+Password connection authentication steps:
+	1. User opens command line terminal on User Machine.
+	2. User types and runs ssh command: ssh user@host-machine.
+
+	Expected Result:
+		1. A prompt for the User to enter their password should appear.
+		2. User should be able enter password "usermachinepassword" and successfully authenticate with Host Machine.
+		3. A connection should be stablished between User and Host Machine.
+
+
+Key based authentication steps:
+	1. User opens command line terminal on User Machine.
+	2. User types and runs command: ssh - i path/to/user_private_key user@host-machine.
+	4. User is now authenticated and logged into the Host Machine.
+
+	Expected Result:
+		1. A prompt for the User to enter their password should appear.
+		2. User should be able enter password "usermachinepassword" and successfully authenticate with Host Machine.
+		3. A connection should be stablished between User and Host Machine.
+
+Post-conditions:
+	1. User has successfully authenticated and connected to the Host Machine using either key based or password based authentication.
+
+Pass/Fail Criteria:
+	Pass: User has successfully authenticated and connected to the Host Machine and is able to execute commands in the command line interface.
+	Fail: Failure to establish and authenticate SSH connection between User and Host Machine during key based or password based authentication steps.
